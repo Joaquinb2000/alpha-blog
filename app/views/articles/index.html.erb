@@ -1,0 +1,21 @@
+<h1>All posts</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @articles.each do |article|%>
+            <tr>
+                <td><strong><%= article.title.capitalize%>:</strong></td>
+                <td><%= article.description%></td>
+                <td><a href=<%= "/articles/#{article.id}"%>>Show</a></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
