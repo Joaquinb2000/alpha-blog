@@ -2,4 +2,11 @@
 
 <h2>Title: <%= @article.title %></h2>
 <h3> Description <%= @article.description %></h3>
-<button><a href="/articles">Go back</a></button>
+
+<table>
+    <td><button><%= link_to 'Go back', articles_path %></button></td>
+    <td><button><%= link_to 'Edit', edit_article_path(@article) %></button></td>
+    <td><button><%= link_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Are you sure?"}%></button></td>
+</table>
+
+
