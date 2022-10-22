@@ -1,11 +1,11 @@
 <h1>All posts</h1>
-
+<h2><%= link_to 'Make a new post', new_article_path %></h2>
 <table>
     <thead>
         <tr>
             <th>Title</th>
             <th>Description</th>
-            <th>Actions</th>
+            <th colspan = "3">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -13,7 +13,9 @@
             <tr>
                 <td><strong><%= article.title.capitalize%>:</strong></td>
                 <td><%= article.description%></td>
-                <td><a href=<%= "/articles/#{article.id}"%>>Show</a></td>
+                <td><%= link_to 'Show', article_path(article)%></td>
+                <td><%= link_to 'Edit', edit_article_path(article) %></td>
+                <td><%= link_to 'Delete', article_path(article), method: :delete%></td>
             </tr>
         <% end %>
     </tbody>
