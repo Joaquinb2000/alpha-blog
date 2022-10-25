@@ -1,5 +1,4 @@
 {
   "name": "alpha-blog",
-  "private": true,
-  "dependencies": {}
+  "private": true
 }

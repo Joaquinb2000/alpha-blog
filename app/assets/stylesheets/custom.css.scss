@@ -1,0 +1,33 @@
+@import "bootstrap";
+
+
+body{
+    background-color: rgb(30, 50, 91);
+}
+
+.banner{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.big-circle{
+    display: flex;
+    white-space: nowrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+
+    background: linear-gradient(180deg, rgb(30, 50, 91) 20%, rgba(234, 255, 212, 1) 100%);
+}
+
+
+.big-circle a{
+    color: inherit;
+}
+
+#logo{
+    font-size: 1.7rem;
+}
