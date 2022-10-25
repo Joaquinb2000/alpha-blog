@@ -1,33 +1,33 @@
 @import "bootstrap";
 
-
+html,
 body{
-    background-color: rgb(30, 50, 91);
+    background: linear-gradient(to bottom, #ADEFD1FF, #00203FFF 100%);
+    height: 100%;
 }
 
-.banner{
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#homebotron{
+    background-image: asset-url('jumbotron2.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-weight: 1200;
+    color: whitesmoke;
+    text-shadow: 1px 1px 8px black;
 }
 
-.big-circle{
-    display: flex;
-    white-space: nowrap;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    color: white;
-
-    background: linear-gradient(180deg, rgb(30, 50, 91) 20%, rgba(234, 255, 212, 1) 100%);
-}
-
-
-.big-circle a{
-    color: inherit;
+#homebotron .lead{
+    font-size: 2.4rem;
 }
 
 #logo{
     font-size: 1.7rem;
+}
+
+#footer{
+    color: lightgray;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    font-size: 0.7rem;
 }
