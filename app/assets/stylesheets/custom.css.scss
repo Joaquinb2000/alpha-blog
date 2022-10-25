@@ -4,6 +4,8 @@ html,
 body{
     background: linear-gradient(to bottom, #ADEFD1FF, #00203FFF 100%);
     height: 100%;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
 }
 
 #homebotron{
@@ -27,7 +29,5 @@ body{
 #footer{
     color: lightgray;
     width: 100%;
-    position: fixed;
-    bottom: 0px;
     font-size: 0.7rem;
 }
