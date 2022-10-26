@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
       flash[:notice]= "Successfuly created article."
       redirect_to @article
     else
-      render new_article_path
+      render "new"
     end
   end
 
