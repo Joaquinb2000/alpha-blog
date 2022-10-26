@@ -6,10 +6,15 @@
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-            <%= link_to "Articles", articles_path, class: "nav-link"%>
-        </li>
-        <li class="nav-item active">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-hashpopup="true" aria-expanded="false">
+                Articles
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "Articles Listing", articles_path, class: "dropdown-item"%>
+                <%= link_to "Create Article", new_article_path, class: "dropdown-item"%>
+            </div>
+        <li class="nav-item">
             <%= link_to "About", about_path, class: "nav-link"%>
         </li>
     </ul>
