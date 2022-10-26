@@ -1,5 +1,6 @@
-<h1>Create a new article</h1>
+<h1 class="text-center text-white my-4">Create a new article</h1>
 
 <%= render 'form'%>
 
-<button><%= link_to "Go back", articles_path %></button>
+<%= link_to "[Cancel and return to articles listing]", articles_path, class: "mt-4 text-center text-info" %>
+

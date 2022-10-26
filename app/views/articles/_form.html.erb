@@ -1,15 +1,25 @@
-<%= render 'errors'%>
+<div class="container bg-info rounded shadow-lg text-white p-4">
+    <%= render 'errors'%>
+    <%= form_with(model: @article, local: true) do |f|%>
 
-<%= form_with(model: @article, local: true) do |f|%>
-<p>
-    <%= f.label :title %> <br>
-    <%= f.text_field :title%>
-</p>
-<p>
-    <%= f.label :description %> <br>
-    <%= f.text_area :description%>
-</p>
-<p>
-    <%= f.submit%>
-</p>
-<% end %>
+        <div class="form-group row">
+            <%= f.label :title, 'Title', class: "col-form-label col-2"%>
+            <div class="col-10">
+                <%= f.text_field :title, class: "form-control", placeholder: "Content of article"%>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <%= f.label :description, class: "col-form-label col-2" %>
+            <div class="col-10">
+                <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Content of article"%>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <%= f.submit class: "btn btn-outline-light btn-lg"%>
+        </div>
+    <% end %>
+</div>
+
+
