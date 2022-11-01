@@ -1,8 +1,7 @@
-<%= render 'shared/errors'%>
+<%= render 'shared/errors', obj: @article%>
 
 <div class="container border border-info rounded shadow-lg text-white p-4">
     <%= form_with(model: @article, local: true) do |f|%>
-
         <div class="form-group row">
             <%= f.label :title, 'Title', class: "col-form-label col-2"%>
             <div class="col-10">
