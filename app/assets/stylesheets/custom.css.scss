@@ -17,6 +17,10 @@ pre{
     word-wrap: break-word;
 }
 
+.img-thumbnail{
+    border: none;
+}
+
 #homebotron{
     background-image: asset-url('jumbotron2.jpg');
     background-position: center center;

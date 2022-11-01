@@ -1,29 +1,7 @@
 <h1 class="text-white text-center mt-5">All posts</h1>
-<% @articles.each do |article|%>
-    <div class="container d-flex justify-content-center p-5">
-        <div class="card w-75 text-center shadow-lg rounded ">
-            <div class="card-header font-italic">
-                by User
-            </div>
-            <div class="card-body">
-                <h5 class="card-title text-success text-shadow"><strong> <%= article.title %> </strong></h5>
-                <p class="card-text"><%= truncate(article.description, length: 100) %></p>
-                <div class= "container">
-                    <%= link_to 'Show', article_path(article), class: "btn btn-outline-success" %>
-                    <%= link_to 'Edit', edit_article_path(article), class: "btn btn-outline-info" %>
-                    <%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger"%>
-                </div>
-            </div>
-            <div class="card-footer text-muted">
-                <small>
-                    Created <%= time_ago_in_words(article.created_at)%> ago
-                    <% if article.created_at != article.updated_at%>
-                        / Edited <%= time_ago_in_words(article.updated_at)%> ago
-                    <%end%>
-                </small>
-            </div>
-        </div>
-    </div>
+
+<% @articles.each do |art|%>
+  <%= render "shared/article_card", article: art%>
 <% end %>
 
 
