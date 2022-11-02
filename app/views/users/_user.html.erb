@@ -1,0 +1,26 @@
+<div class="container d-flex justify-content-center p-4">
+    <div class="card w-75 text-center shadow-lg rounded ">
+        <div class="card-header text-primary font-italic">
+           <strong> <%= link_to user.username, user %> </strong>
+        </div>
+        <div class="card-body container">
+            <div class="row d-flex justify-content-center">
+                <%= link_to gravatar_for(user, options = {size: 150}), user %>
+            </div>
+            <div class= "row justify-content-center mt-3">
+                    <strong>
+                        <%= pluralize(user.articles.count, "article")%>
+                    </strong>
+            </div>
+            <div class= "container mt-4">
+                <%= link_to 'View profile', user_path(user), class: "btn btn-outline-success" %>
+                <%= link_to 'Edit profile', edit_user_path(user), class: "btn btn-outline-info" %>
+            </div>
+        </div>
+        <div class="card-footer text-muted">
+            <small>
+                Joined <%= time_ago_in_words(user.created_at)%> ago
+            </small>
+        </div>
+    </div>
+</div>
