@@ -1,7 +1,7 @@
 <div class="container d-flex justify-content-center p-5">
         <div class="card w-75 text-center shadow-lg rounded ">
             <div class="card-header font-italic">
-                by <%= article.user.username %>
+                by <%= link_to article.user.username, article.user %>
             </div>
             <div class="card-body">
                 <h5 class="card-title text-success text-shadow"><strong> <%= article.title %> </strong></h5>

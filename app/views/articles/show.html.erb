@@ -2,7 +2,11 @@
 <div class="container d-flex justify-content-center p-5">
     <div class="card w-75 text-center shadow-lg rounded ">
         <div class="card-header font-italic font-weight-bold">
-            by User
+            by <%= @article.user.username %>
+            <div class="mt-2">
+                <%= link_to(gravatar_for(@article.user))%>
+            </div>
+
         </div>
         <div class="card-body">
             <pre class="card-text text-justify p-3"><%= @article.description%></pre>

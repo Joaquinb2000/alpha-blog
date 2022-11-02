@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:notice]= "Account info updated succesfully."
-      redirect_to articles_path
+      redirect_to @user
     else
       render "edit"
     end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     @user= User.new(user_params)
     if @user.save
       flash[:notice] = "Welcome to Alpha Blog #{@user.username.capitalize}!"
-      redirect_to articles_path
+      redirect_to @user
     else
       render "new"
     end
