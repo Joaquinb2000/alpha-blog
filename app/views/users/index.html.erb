@@ -1,5 +1,10 @@
-<h1 class= "text-light text-center mt-4"> Alpha Bloggers </h1>
+<h1 class= "text-light text-center my-4"> Alpha Bloggers </h1>
+
+<%= render 'shared/paginate', model: @users%>
 
 <% @users.each do |usr| %>
  <%= render "user", user: usr%>
 <% end %>
+
+<div class="mb-5"><%= render 'shared/paginate', model: @users%></div>
+

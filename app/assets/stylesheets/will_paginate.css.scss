@@ -1,0 +1,61 @@
+.digg_pagination {
+    background: none;
+    cursor: default;
+    /* self-clearing method: */ }
+
+.digg_pagination a, .digg_pagination span, .digg_pagination em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 5px;
+    border-radius: 10px;}
+
+.digg_pagination .disabled {
+    border: inherit;
+    color: gray
+}
+
+.digg_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    color: white;
+    border: 1px solid #2e6ab1;
+    background-color: #0E79B2; }
+.digg_pagination a {
+    text-decoration: none;
+    color: white;
+    border: 1px solid whitesmoke;
+}
+
+.digg_pagination a:first-child  {
+    border-radius: 20% 0% 0% 20%;
+}
+
+.digg_pagination a:last-child{
+    border-radius: 0% 20% 20% 0%;
+}
+.digg_pagination a:hover, .digg_pagination a:focus {
+    border-color: #2e6ab1;
+    color: #2e6ab1;
+    font-weight: bold;}
+.digg_pagination .page_info {
+    background: inherit;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center; }
+    .digg_pagination .page_info b {
+    color: #000033;
+    background: #6aa6ed;
+    padding: 0.1em 0.25em; }
+.digg_pagination:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+* html .digg_pagination {
+    height: 1%; }
+*:first-child + html .digg_pagination {
+    overflow: hidden; }
