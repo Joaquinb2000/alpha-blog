@@ -14,7 +14,11 @@
 <% if @user.articles.empty?%>
     <h2 class= "text-center text-light"> No articles yet! </h2>
 <% else %>
+    <%= render 'shared/paginate', model: @articles%>
     <% @user.articles.each do |art|%>
         <%= render "shared/article_card", article: art%>
     <% end%>
 <% end %>
+
+<div class="mb-5"><%= render 'shared/paginate', model: @articles%></div>
+
