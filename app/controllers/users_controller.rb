@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [ :show, :edit, :update ]
+  before_action :only_when_logged_out, only: [ :create, :new ]
+  before_action :require_user, only: [ :update, :edit ]
+  before_action :require_same_user, only: [ :update, :edit ]
 
   def index
     @users = User.paginate(page: params[:page], per_page: 5)
@@ -16,15 +19,6 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def update
-    if @user.update(user_params)
-      flash[:notice]= "Account info updated succesfully."
-      redirect_to @user
-    else
-      render "edit"
-    end
-  end
-
   def create
     @user= User.new(user_params)
     if @user.save
@@ -36,6 +30,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    if @user.update(user_params)
+      flash[:notice]= "Account info updated succesfully."
+      redirect_to @user
+    else
+      render "edit"
+    end
+  end
 
   private
 
@@ -47,4 +49,17 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :email, :password)
   end
 
+  def require_same_user
+    if current_user != @user
+      flash[:alert] = "You can only edit your own user"
+      redirect_to @user
+    end
+  end
+
+  def only_when_logged_out
+    if logged_in?
+      flash[:alert]= "You must logout first to perform that action"
+      redirect_to current_user
+    end
+  end
 end
