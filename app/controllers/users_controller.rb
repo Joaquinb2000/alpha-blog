@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [ :show, :edit, :update ]
+  before_action :set_user, only: [ :show, :edit, :update, :destroy ]
   before_action :only_when_logged_out, only: [ :create, :new ]
-  before_action :require_user, only: [ :update, :edit ]
-  before_action :require_same_user, only: [ :update, :edit ]
+  before_action :require_user, only: [ :update, :edit, :destroy ]
+  before_action :require_same_user, only: [ :update, :edit, :destroy ]
 
   def index
     @users = User.paginate(page: params[:page], per_page: 5)
@@ -37,6 +37,13 @@ class UsersController < ApplicationController
     else
       render "edit"
     end
+  end
+
+  def destroy
+    @user.destroy
+    session[:user_id] = nil
+    flash[:notice] = "Account and all associated articles succesfully deleted"
+    redirect_to root_path
   end
 
   private
