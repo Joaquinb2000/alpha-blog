@@ -2,7 +2,7 @@
 <div class="container d-flex justify-content-center p-5">
     <div class="card w-75 text-center shadow-lg rounded ">
         <div class="card-header font-italic font-weight-bold">
-            by <%= @article.user.username %>
+            by <%= link_to @article.user.username, @article.user %>
             <div class="mt-2">
                 <%= link_to(gravatar_for(@article.user))%>
             </div>
@@ -10,10 +10,12 @@
         </div>
         <div class="card-body">
             <pre class="card-text text-justify p-3"><%= @article.description%></pre>
-            <div class= "container">
-                <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-outline-info" %>
-                <%= link_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger"%>
-            </div>
+            <% if current_user == @article.user %>
+                <div class= "container">
+                    <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-outline-info" %>
+                    <%= link_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger"%>
+                </div>
+            <% end %>
         </div>
         <div class="card-footer text-muted">
             <small>
@@ -25,5 +27,6 @@
         </div>
     </div>
 </div>
+<%= link_to "[Back to articles listing]", articles_path, class: "mt-2 text-center text-info"%>
 
 

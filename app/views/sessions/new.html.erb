@@ -1,11 +1,11 @@
 <h1 class="text-center text-light my-4">Log in</h1>
 
 <div class="container w-75 p-4 shadow-lg rounded border border-info text-light">
-    <%= form_with scope: :session, url: "/login", method: :post do |f| %>
+    <%= form_with(scope: :session, url: login_path, method: :post, local: true) do |f| %>
         <div class="form-group row">
-            <%= f.label :username, class: "col-form-label col-2"%>
+            <%= f.label :email, class: "col-form-label col-2"%>
             <div class="col-10">
-                <%= f.text_field :username, class: "form-control", placeholder: "Enter your username" %>
+                <%= f.text_field :email, class: "form-control", placeholder: "Enter your username" %>
             </div>
         </div>
 

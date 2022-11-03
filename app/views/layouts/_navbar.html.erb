@@ -15,11 +15,31 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <%= link_to "Articles Listing", articles_path, class: "dropdown-item"%>
-                <%= link_to "Create Article", new_article_path, class: "dropdown-item"%>
+                <% if logged_in? %>
+                    <%= link_to "Create Article", new_article_path, class: "dropdown-item"%>
+                <%end%>
             </div>
-        <li class="nav-item">
-            <%= link_to "About", about_path, class: "nav-link"%>
         </li>
+        <% if logged_in? %>
+        <li class= "nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-hashpopup="true" aria-expanded="false">
+                <%= current_user.username%>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "View profile", user_path(current_user), class: "dropdown-item"%>
+                <%= link_to "Edit profile", edit_user_path(current_user), class: "dropdown-item"%>
+                <%= link_to "Log out", logout_path, method: :delete, class: "dropdown-item"%>
+            </div>
+        </li>
+        <% else %>
+            <li class="nav-item">
+                <%= link_to "Log in", login_path, class: "nav-link"%>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Sign up", signup_path, class: "nav-link"%>
+            </li>
+        <% end %>
+
     </ul>
     <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search">

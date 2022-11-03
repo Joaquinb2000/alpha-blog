@@ -6,19 +6,19 @@
     <%= gravatar_for(@user, options = {size: 200}) %>
 </div>
 
-<div class= "container d-flex justify-content-center my-3">
-    <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-info text-white shadow-lg" %>
-</div>
-
-<h2 class= "text-center text-light mt-3"> Articles </h2>
-<% if @user.articles.empty?%>
-    <h2 class= "text-center text-light"> No articles yet! </h2>
-<% else %>
-    <%= render 'shared/paginate', model: @articles%>
-    <% @user.articles.each do |art|%>
-        <%= render "shared/article_card", article: art%>
-    <% end%>
+<% if current_user == @user%>
+    <div class= "container d-flex justify-content-center my-3">
+        <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-info text-white shadow-lg" %>
+    </div>
 <% end %>
 
-<div class="mb-5"><%= render 'shared/paginate', model: @articles%></div>
-
+<div class="mt-4">
+    <% if @user.articles.empty?%>
+        <h2 class= "text-center text-light"> No articles yet! </h2>
+    <% else %>
+        <h2 class= "text-center text-light mt-3"> Articles </h2>
+        <% @user.articles.each do |art|%>
+            <%= render "shared/article_card", article: art%>
+        <% end%>
+    <% end %>
+</div>
