@@ -1,0 +1,15 @@
+<div class="container d-flex justify-content-center p-4">
+    <div class="card w-50 text-center shadow-lg rounded ">
+        <div class="card-body container">
+           <h2><strong> <%= link_to category.name.capitalize, category, class: "text-success" %> </strong></h2>
+        </div>
+        <div class="card-footer text-muted">
+            <small>
+                Created <%= time_ago_in_words(category.created_at)%> ago
+                <% if category.created_at != category.updated_at%>
+                    / Edited <%= time_ago_in_words(category.updated_at)%> ago
+                <%end%>
+            </small>
+        </div>
+    </div>
+</div>

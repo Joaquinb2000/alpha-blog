@@ -1,0 +1,15 @@
+<h1 class="text-white text-center mt-5 mb-4">Categories</h1>
+
+<div class="my-3">
+    <%= render 'shared/paginate', model: @categories%>
+</div>
+
+<% @categories.each do | cat |%>
+    <%= render "category_card", category: cat%>
+<% end%>
+
+<div class="mb-5 my-3">
+    <%= render 'shared/paginate', model: @categories%>
+</div>
+
+
