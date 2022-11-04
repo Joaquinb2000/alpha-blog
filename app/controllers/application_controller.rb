@@ -17,4 +17,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_admin
+    if !(logged_in? && current_user.admin?)
+      flash[:alert] = "You need admin permitions perform that action"
+      redirect_to categories_path
+    end
+  end
+
 end
