@@ -2,6 +2,12 @@
         <div class="card w-75 text-center shadow-lg rounded ">
             <div class="card-header font-italic">
                 by <%= link_to article.user.username, article.user %>
+
+                <% if article.categories.any? %>
+                    <div class = "d-flex justify-content-center mt-3">
+                        <%= render article.categories%>
+                    </div>
+                <% end %>
             </div>
             <div class="card-body">
                 <h5 class="card-title text-success text-shadow"><strong> <%= article.title %> </strong></h5>
