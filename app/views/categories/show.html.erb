@@ -1,1 +1,20 @@
-<h1><%=@category.name.capitalize%></h1>
+<h1 class="text-center text-light my-3">Category: <%= @category.name.capitalize %></h1>
+
+<% if logged_in? && current_user.admin %>
+    <div class= "d-flex mt-4 mb-3 justify-content-center">
+            <%= link_to 'Edit category', edit_category_path(@category), class: "mr-3 btn btn-info" %>
+            <%= link_to 'Delete category', category_path(@category), method: :delete, data: { confirm: "Are you sure? All associations will be deleted" }, class: "btn btn-danger" %>
+    </div>
+<%end%>
+
+<div class="my-3">
+    <%= render 'shared/paginate', model: @articles%>
+</div>
+
+<% @category.articles.each do |articl|%>
+    <%= render "shared/article_card", article: articl%>
+<% end %>
+
+<div class="mb-5">
+    <%= render 'shared/paginate', model: @articles%>
+</div>

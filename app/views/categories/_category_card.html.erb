@@ -2,6 +2,7 @@
     <div class="card w-50 text-center shadow-lg rounded ">
         <div class="card-body container">
            <h2><strong> <%= link_to category.name.capitalize, category, class: "text-success" %> </strong></h2>
+           <%= pluralize(category.articles.count, "Article") %>
         </div>
         <div class="card-footer text-muted">
             <small>

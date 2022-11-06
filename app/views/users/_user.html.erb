@@ -12,15 +12,13 @@
                         <%= pluralize(user.articles.count, "article")%>
                     </strong>
             </div>
-                <div class= "container mt-4">
-                    <%= link_to 'View profile', user_path(user), class: "btn btn-outline-success" %>
-                    <% if current_user == user %>
-                        <%= link_to 'Edit profile', edit_user_path(user), class: "btn btn-outline-info" %>
-                    <% end %>
-                    <% if logged_in? && current_user.admin %>
-                        <%= link_to 'Delete profile', user_path(user), method: :delete, data: { confirm: "Are you sure? All articles will be deleted" }, class: "btn btn-outline-danger" %>
-                    <%end%>
-                </div>
+            <div class= "container mt-4">
+                <%= link_to 'View profile', user_path(user), class: "btn btn-outline-success" %>
+                <% if logged_in? && (current_user == user || current_user.admin)%>
+                    <%= link_to 'Edit profile', edit_user_path(user), class: "btn btn-outline-info" %>
+                    <%= link_to 'Delete profile', user_path(user), method: :delete, data: { confirm: "Are you sure? All articles will be deleted" }, class: "btn btn-outline-danger" %>
+                <%end%>
+            </div>
         </div>
         <div class="card-footer text-muted">
             <small>
